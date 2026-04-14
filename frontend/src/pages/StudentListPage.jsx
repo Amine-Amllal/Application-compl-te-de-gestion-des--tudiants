@@ -24,8 +24,6 @@ import Button from "../components/ui/Button"
 import EmptyState from "../components/ui/EmptyState"
 import LoadingSpinner from "../components/ui/LoadingSpinner"
 import Pagination from "../components/ui/Pagination"
-import SearchBar from "../components/ui/SearchBar"
-import Select from "../components/ui/Select"
 
 const FILIERES = ["Informatique", "Maths", "Physique", "Economie", "Gestion"]
 
@@ -172,32 +170,7 @@ export default function StudentListPage({ globalSearch, setGlobalSearch, setLayo
       </section>
 
       <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-end">
-          <div className="w-full lg:flex-1">
-            <SearchBar
-              value={globalSearch}
-              onChange={setGlobalSearch}
-              placeholder="Rechercher par nom ou email"
-            />
-          </div>
-          <div className="w-full lg:w-52">
-            <Select value={filiere} onChange={(event) => setFiliere(event.target.value)}>
-              <option value="">Toutes les filieres</option>
-              {FILIERES.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </Select>
-          </div>
-          <div className="w-full lg:w-52">
-            <Select value={status} onChange={(event) => setStatus(event.target.value)}>
-              <option value="">Tous les statuts</option>
-              <option value="actif">Actif</option>
-              <option value="suspendu">Suspendu</option>
-              <option value="diplome">Diplome</option>
-            </Select>
-          </div>
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-end">
           <Button onClick={() => navigate("/add")}>
             <PlusIcon className="h-4 w-4" />
             Ajouter un etudiant
@@ -225,6 +198,13 @@ export default function StudentListPage({ globalSearch, setGlobalSearch, setLayo
               students={students}
               loading={studentsQuery.isFetching && !studentsQuery.isLoading}
               onDelete={setDeletingStudent}
+              searchValue={globalSearch}
+              onSearchChange={setGlobalSearch}
+              filiere={filiere}
+              onFiliereChange={setFiliere}
+              status={status}
+              onStatusChange={setStatus}
+              filiereOptions={FILIERES}
             />
           </div>
 

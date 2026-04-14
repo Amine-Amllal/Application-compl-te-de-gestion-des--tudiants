@@ -6,6 +6,12 @@ L'objet principal de ce projet est l'apprentissage de Django, en construisant un
 ## Presentation
 Cette application permet de gerer des etudiants avec les operations CRUD (creer, lire, modifier, supprimer), l'upload de photo de profil, la recherche, le filtrage, la pagination et l'export CSV.
 
+## Apercu visuel
+
+
+### Page d'accueil
+![Homepage](docs/images/homepage.png)
+
 ## Fonctionnalites principales
 - Gestion complete des etudiants (CRUD)
 - Upload de photo de profil
@@ -64,6 +70,7 @@ Resume rapide:
 ## Remarques pedagogiques
 Ce projet est volontairement structure pour apprendre:
 - la modelisation de donnees Django
+![Django Logo](docs/images/djangologo.png)
 - la creation d'API avec DRF
 - la gestion des fichiers media
 - la consommation d'API avec React Query
